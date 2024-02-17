@@ -1,15 +1,15 @@
-My Website
-This is a personal website I am building to showcase my work and skills.
+**My Website**
+- This is a personal website I am building to showcase my work and skills.
 
-Description
-The website has the following sections:
+**Description**
+- The website has the following sections:
 
-Home - Welcome page with a brief introduction
+1. **Home** - Welcome page with a brief introduction
 
-About - Details about myself and my background
+2. **About** - Details about myself and my background
 
-Projects - Showcase of some projects I have worked on
+3. **Projects** - Showcase of some projects I have worked on
 
-Contact - Way for visitors to reach out to me
+4. **Contact** - Way for visitors to reach out to me
 
 It is built using HTML, CSS, and Bootstrap for responsive design. Font Awesome is used for icons.
