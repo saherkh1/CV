@@ -1,0 +1,80 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f8f9fa;
+  --font-family: "Roboto", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+/* Custom CSS */
+nav a{
+    color: white;
+}
+/* Change the background color of the navbar on page scroll */
+.navbarScroll {
+  transition: background-color 0.5s ease;
+}
+
+.navbarScroll.scrolled {
+  background-color: #343a40;
+}
+
+/* Add some margin and padding to the sections */
+.container {
+  /* margin-top: 80px; */
+  padding: 20px;
+}
+
+/* Add some shadow and hover effect to the cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some style to the buttons */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+.icon-font {
+  font-size: 150%;
+}
+
+.responsive-iframe-container {
+  position: relative;
+  padding-bottom: 200%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.responsive-iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
