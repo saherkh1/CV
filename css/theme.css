@@ -1,0 +1,122 @@
+/* Theme variables */
+:root {
+  /* Light theme variables */
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f8f9fa;
+  --text-color: #212529;
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  --navbar-bg: #343a40;
+  --navbar-text: #ffffff;
+  --link-color: #007bff;
+  --border-color: #dee2e6;
+}
+
+[data-theme="dark"] {
+  --primary-color: #0d6efd;
+  --secondary-color: #adb5bd;
+  --background-color: #212529;
+  --text-color: #f8f9fa;
+  --card-bg: #343a40;
+  --card-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  --navbar-bg: #121212;
+  --navbar-text: #ffffff;
+  --link-color: #0d6efd;
+  --border-color: #495057;
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  margin: 0 0 0 15px;
+  padding: 0;
+  border: 2px solid var(--text-color);
+  border-radius: 24px;
+  background-color: var(--card-bg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle::before {
+  content: "🌞";
+  position: absolute;
+  left: 2px;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+[data-theme="dark"] .theme-toggle {
+  border-color: var(--card-bg);
+  background-color: var(--text-color);
+}
+
+[data-theme="dark"] .theme-toggle::before {
+  content: "🌙";
+  transform: translateX(24px);
+}
+
+/* Theme transitions */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme-aware components */
+.card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.navbar {
+  background-color: var(--navbar-bg);
+  padding: 0.5rem 1rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand, .nav-link {
+  color: var(--navbar-text) !important;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  color: var(--link-color);
+}
+
+/* Dark mode specific adjustments */
+[data-theme="dark"] .jumbotron {
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: darken;
+}
+
+[data-theme="dark"] .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+} 
