@@ -33,7 +33,7 @@
   height: 24px;
   margin-left: 15px;
   padding: 0;
-  border: 2px solid var(--text-color);
+  border: 2px solid #000000;  /* Static black border in light mode */
   border-radius: 24px;
   background-color: var(--card-bg);
   cursor: pointer;
@@ -41,6 +41,7 @@
   display: flex;
   align-items: center;
   float: right;
+  outline: none;  /* Remove focus outline */
 }
 
 .theme-toggle::before {
@@ -54,7 +55,7 @@
 }
 
 [data-theme="dark"] .theme-toggle {
-  border-color: #000000;
+  border-color: #ffffff;  /* Static white border in dark mode */
   background-color: #000000;
 }
 
@@ -63,6 +64,11 @@
   transform: translateX(22px);
   top: 3px;
   color: #ffffff;
+}
+
+.theme-toggle:focus {
+  outline: none;  /* Remove focus outline when focused */
+  box-shadow: none;  /* Remove any box shadow on focus */
 }
 
 /* Theme transitions */
