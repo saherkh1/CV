@@ -4,11 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaherKh Portfolio</title>
+    <title>Saher Khateeb — C# .NET Backend Engineer</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="Saher Khateeb — C# / .NET backend engineer, AWS Certified Developer Associate. Hackathon winner. Building reliable APIs, cloud-native services, and full-stack apps.">
+    <meta name="author" content="Saher Khateeb">
+    <meta name="keywords" content="Saher Khateeb, C#, .NET, Backend Developer, Software Engineer, AWS Certified, Cloud, Microservices, Portfolio">
+    <link rel="canonical" href="https://cv.saherkh.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cv.saherkh.com/">
+    <meta property="og:title" content="Saher Khateeb — C# .NET Backend Engineer">
+    <meta property="og:description" content="C# / .NET backend engineer, AWS Certified. Hackathon winner. Portfolio, projects, and contact.">
+    <meta property="og:image" content="https://cv.saherkh.com/images/bgProfile.jpeg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Saher Khateeb — C# .NET Backend Engineer">
+    <meta name="twitter:description" content="C# / .NET backend engineer, AWS Certified. Portfolio and projects.">
+    <meta name="twitter:image" content="https://cv.saherkh.com/images/bgProfile.jpeg">
+
+    <!-- JSON-LD Person schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Saher Khateeb",
+        "jobTitle": "Software Engineer — C# / .NET Backend",
+        "url": "https://cv.saherkh.com",
+        "email": "mailto:contact@saherkh.com",
+        "telephone": "+972-52-8994521",
+        "sameAs": [
+            "https://linkedin.com/in/saher-khateeb",
+            "https://github.com/saherkh1"
+        ],
+        "knowsAbout": ["C#", ".NET", "ASP.NET", "AWS", "Microservices", "Docker", "Kubernetes", "Java", "Spring Boot", "SQL"],
+        "hasCredential": [
+            {"@type": "EducationalOccupationalCredential", "name": "AWS Certified Developer — Associate"},
+            {"@type": "EducationalOccupationalCredential", "name": "Bachelor's degree in Software Engineering"}
+        ]
+    }
+    </script>
+
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
     <link rel="manifest" href="./favicon_io/site.webmanifest">
+
+    <!-- Preconnect for faster CDN -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
@@ -19,10 +66,13 @@
 </head>
 
 <body>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Navigation Menu -->
     <nav class="navbar navbar-expand-lg fixed-top navbarScroll">
         <div class="container">
-            <a class="navbar-brand" href="#">Saher Khateeb</a>
+            <a class="navbar-brand" href="#home">Saher Khateeb</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -30,21 +80,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#timeline">Journey</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Certs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Recs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
             <button class="theme-toggle" aria-label="Toggle dark mode"></button>
@@ -52,283 +95,465 @@
     </nav>
 
     <!-- Hero Section -->
-    <div id="home" class="hero-section">
+    <header id="home" class="hero-section">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center">
                     <h1 class="display-4 fw-bold">Saher Khateeb</h1>
-                    <p class="lead mb-4">Software Engineer | C# .Net backend Developer</p>
+                    <p class="lead mb-2">
+                        <span class="typed-prefix">I build </span><span class="typed" id="typed"></span><span class="typed-cursor" aria-hidden="true">|</span>
+                    </p>
+                    <p class="hero-tagline">C# / .NET backend engineer · AWS Certified · Hackathon winner</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary btn-lg me-3">Hire Me</a>
-                        <a href="https://github.com/saherkh1/Achievements/blob/main/SaherKhateeb-CV.pdf" 
-                           class="btn btn-secondary btn-lg" target="_blank">View or download Resume</a>
+                        <a href="https://github.com/saherkh1/Achievements/blob/main/SaherKhateeb-CV.pdf"
+                           class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
+                            <i class="fas fa-file-arrow-down me-2"></i>Download Resume
+                        </a>
+                    </div>
+                    <div class="hero-social">
+                        <a href="https://github.com/saherkh1" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/saher-khateeb" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:contact@saherkh.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
+            <a href="#about" class="scroll-cue" aria-label="Scroll to About"><i class="fas fa-chevron-down"></i></a>
         </div>
-    </div>
+    </header>
 
     <!-- About Section -->
-    <div id="about" class="container py-4">
-        <h2 class="text-center">About Me</h2>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+    <section id="about" class="container py-5 section-reveal">
+        <h2 class="section-title text-center">About Me</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <p class="lead-about">
+                    I'm a software engineer focused on <strong>C# / .NET backend</strong> — APIs, services, and the
+                    plumbing that keeps them reliable. I care about clean contracts, observable systems, and code
+                    that's boring in the best way.
+                </p>
                 <p>
-                    Driven software engineer with a robust background in C# programming and a keen eye for problem-solving. 
-                    Possessing a deep commitment to continuous learning and professional growth, with a solid track record 
-                    of rapidly mastering new technologies.
-                    </p>
-                    <p><strong>Pursuing a C# .Net backend position.</strong></p>
-                <ul class="list-unstyled">
-                    <li><strong>Cellphone:</strong> <a href="tel:+972528994521">+972 52-8994521</a></li>
-                    <li><strong>Email:</strong> <a href="mailto:contact@saherkh.com">contact@saherkh.com</a></li>
-                    <li><strong>LinkedIn:</strong> 
-                        <a target="_blank" href="https://linkedin.com/in/saher-khateeb">linkedin.com/in/saher-khateeb</a>
-                    </li>
-                    <li><strong>GitHub:</strong> 
-                        <a target="_blank" href="https://github.com/saherkh1">github.com/saherkh1</a>
-                    </li>
+                    AWS Certified Developer Associate. Comfortable across the stack when it's needed —
+                    Java/Spring Boot, React, AngularJS, and even Arduino/C++ for the project that won my software
+                    engineering department's top prize. First place at one hackathon, second at another (EcoHack).
+                </p>
+                <p class="text-muted-info"><strong>Currently pursuing C# / .NET backend roles.</strong></p>
+                <ul class="contact-list list-unstyled">
+                    <li><i class="fas fa-phone fa-fw"></i> <a href="tel:+972528994521">+972 52-8994521</a></li>
+                    <li><i class="fas fa-envelope fa-fw"></i> <a href="mailto:contact@saherkh.com">contact@saherkh.com</a></li>
+                    <li><i class="fab fa-linkedin fa-fw"></i> <a target="_blank" rel="noopener" href="https://linkedin.com/in/saher-khateeb">linkedin.com/in/saher-khateeb</a></li>
+                    <li><i class="fab fa-github fa-fw"></i> <a target="_blank" rel="noopener" href="https://github.com/saherkh1">github.com/saherkh1</a></li>
                 </ul>
             </div>
         </div>
-    </div>
-    
-    <!-- Services Section -->
-    <div id="services" class="container py-4">
-        <h2 class="text-center">Services</h2>
+    </section>
+
+    <!-- What I do (Services) -->
+    <section id="services" class="container py-5 section-reveal">
+        <h2 class="section-title text-center">What I Do</h2>
         <div class="row">
             <div class="col-md-4">
-                <div class="card mb-4">
+                <div class="card service-card h-100">
                     <div class="card-body text-center">
-                        <i class="fas fa-code fa-3x"></i>
-                        <h5 class="card-title">Web Development</h5>
-                        <p class="card-text">I can create responsive and dynamic websites using HTML, CSS, JavaScript,
-                            and Bootstrap. I can also use frameworks and libraries like React, Angular, Node.js, and
-                            PHP.</p>
-                        <br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-body text-center">
-                        <i class="fas fa-cogs fa-3x"></i>
-                        <h5 class="card-title">Software Engineering</h5>
-                        <p class="card-text">I specialize in designing and developing C# and .NET applications, with additional experience in Java, C++, and Python. I use tools like Git, Jira, Agile, and DevOps for efficient project management.</p>
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-body text-center">
-                        <i class="fas fa-cloud fa-3x"></i>
-                        <h5 class="card-title">Cloud Computing</h5>
-                        <p class="card-text"><p class="card-text">
-                            AWS certified with experience in S3, EC2, Lambda, and DynamoDB for web application deployment. Quick to adapt to Azure, GCP, and other platforms. Skilled in Docker, Kubernetes, and CI/CD for automated deployments.
+                        <i class="fas fa-server fa-3x service-icon"></i>
+                        <h5 class="card-title mt-3">Backend APIs &amp; Services</h5>
+                        <p class="card-text">
+                            ASP.NET Core APIs, background workers, and integrations. EF Core, SQL Server, Postgres,
+                            REST and gRPC. Designed for testability, traced for observability.
                         </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-cloud fa-3x service-icon"></i>
+                        <h5 class="card-title mt-3">Cloud &amp; DevOps</h5>
+                        <p class="card-text">
+                            AWS (S3, EC2, Lambda, DynamoDB) for production workloads. Containerized with Docker,
+                            orchestrated where it earns its keep. CI/CD pipelines that catch regressions early.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-layer-group fa-3x service-icon"></i>
+                        <h5 class="card-title mt-3">Full-Stack When Needed</h5>
+                        <p class="card-text">
+                            React / Angular front ends backed by .NET or Node. Mobile/desktop too —
+                            WPF, JavaFX, Android. I pick the boring tool that gets the job shipped.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container py-5 section-reveal">
+        <h2 class="section-title text-center">Skills</h2>
+        <p class="text-center subtitle">Tools I reach for, grouped by what they do.</p>
+        <div class="skills-grid">
+            <div class="skill-group">
+                <h5><i class="fas fa-code"></i> Languages</h5>
+                <div class="badge-row">
+                    <span class="tech-badge primary">C#</span>
+                    <span class="tech-badge">Java</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">TypeScript</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">C++</span>
+                    <span class="tech-badge">SQL</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h5><i class="fas fa-cubes"></i> Frameworks &amp; Libraries</h5>
+                <div class="badge-row">
+                    <span class="tech-badge primary">.NET / ASP.NET Core</span>
+                    <span class="tech-badge primary">Entity Framework</span>
+                    <span class="tech-badge">Spring Boot</span>
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">Angular</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">JavaFX</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h5><i class="fas fa-cloud"></i> Cloud &amp; DevOps</h5>
+                <div class="badge-row">
+                    <span class="tech-badge primary">AWS (S3, EC2, Lambda, DynamoDB)</span>
+                    <span class="tech-badge">Docker</span>
+                    <span class="tech-badge">Kubernetes</span>
+                    <span class="tech-badge">CI/CD</span>
+                    <span class="tech-badge">Linux</span>
+                    <span class="tech-badge">Firebase</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h5><i class="fas fa-toolbox"></i> Tools &amp; Practices</h5>
+                <div class="badge-row">
+                    <span class="tech-badge">Git</span>
+                    <span class="tech-badge">Jira</span>
+                    <span class="tech-badge">Agile / Scrum</span>
+                    <span class="tech-badge">REST</span>
+                    <span class="tech-badge">gRPC</span>
+                    <span class="tech-badge">Microservices</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Portfolio Section -->
-    <div id="portfolio" class="container py-4">
-        <h2 class="text-center">Portfolio</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <!-- <img src="your-image.jpg" class="card-img-top" alt="Your image"> -->
+    <section id="portfolio" class="container py-5 section-reveal">
+        <h2 class="section-title text-center">Portfolio</h2>
+        <div class="portfolio-filters" role="tablist" aria-label="Filter projects by stack">
+            <button class="filter-chip active" data-filter="all">All</button>
+            <button class="filter-chip" data-filter="csharp">C# / .NET</button>
+            <button class="filter-chip" data-filter="java">Java</button>
+            <button class="filter-chip" data-filter="web">Web</button>
+            <button class="filter-chip" data-filter="cloud">Cloud</button>
+        </div>
+        <div class="row" id="portfolioGrid">
+            <div class="col-md-6 portfolio-item" data-tags="csharp cloud">
+                <div class="card project-card h-100">
                     <div class="card-body">
                         <h5 class="card-title">AWS S3 File Uploader</h5>
-                        <p class="card-text">C# WPF application allows uploading files to Amazon S3 using AWS SDK.
-                            Encryption of sensitive data using the AES algorithm.</p>
-                        <a target="_blank" href="https://github.com/saherkh1/AWS_S3_File_Uploader"
-                            class="btn btn-primary">View on
-                            GitHub</a>
+                        <p class="card-text">
+                            C# WPF desktop client that uploads to Amazon S3 via the AWS SDK, with AES encryption
+                            for sensitive payloads before upload.
+                        </p>
+                        <div class="badge-row small">
+                            <span class="tech-badge">C#</span>
+                            <span class="tech-badge">WPF</span>
+                            <span class="tech-badge">AWS S3</span>
+                            <span class="tech-badge">AES</span>
+                        </div>
+                        <a target="_blank" rel="noopener" href="https://github.com/saherkh1/AWS_S3_File_Uploader" class="btn btn-primary mt-3">
+                            <i class="fab fa-github me-2"></i>View on GitHub
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <!-- <img src="your-image.jpg" class="card-img-top" alt="Your image"> -->
+            <div class="col-md-6 portfolio-item" data-tags="java web">
+                <div class="card project-card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Earth Keepers</h5>
-                        <p class="card-text">JAVA, JavaFX, SceneBuilder application. Environmental preservation project,
-                            first place in Hackathon.</p>
-                        <a target="_blank" href="https://github.com/saherkh1/EarthKeepers" class="btn btn-primary">View
-                            on GitHub</a>
+                        <h5 class="card-title">Earth Keepers <span class="award-pill">1st place</span></h5>
+                        <p class="card-text">
+                            Environmental preservation app built in Java with JavaFX and SceneBuilder.
+                            Took first place at the hackathon it was built for.
+                        </p>
+                        <div class="badge-row small">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">JavaFX</span>
+                            <span class="tech-badge">SceneBuilder</span>
+                        </div>
+                        <a target="_blank" rel="noopener" href="https://github.com/saherkh1/EarthKeepers" class="btn btn-primary mt-3">
+                            <i class="fab fa-github me-2"></i>View on GitHub
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <!-- <img src="your-image.jpg" class="card-img-top" alt="Your image"> -->
+            <div class="col-md-6 portfolio-item" data-tags="web">
+                <div class="card project-card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Finds: Managing and selling Car Parts Warehouse</h5>
-                        <p class="card-text">AngularJS and NodeJS online shop for challenging and improving Full-Stack
-                            development skills.</p>
-                        <a target="_blank" href="https://github.com/saherkh1/Finds" class="btn btn-primary">View on
-                            GitHub</a>
+                        <h5 class="card-title">Finds — Car Parts Marketplace</h5>
+                        <p class="card-text">
+                            AngularJS + Node.js storefront and admin for selling car parts. Built to push my
+                            full-stack chops end-to-end.
+                        </p>
+                        <div class="badge-row small">
+                            <span class="tech-badge">AngularJS</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">REST</span>
+                        </div>
+                        <a target="_blank" rel="noopener" href="https://github.com/saherkh1/Finds" class="btn btn-primary mt-3">
+                            <i class="fab fa-github me-2"></i>View on GitHub
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <!-- <img src="your-image.jpg" class="card-img-top" alt="Your image"> -->
+            <div class="col-md-6 portfolio-item" data-tags="java web cloud">
+                <div class="card project-card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Waste Management System</h5>
-
-                        <p class="card-text">JAVA Spring Boot Microservices backend, react web app, deployed on Linux
-                            AWS EC2. Programmed an Arduino device in C++ for seamless integration. First place in the
-                            software engineering department.</p>
-                        <a target="_blank" href="https://github.com/saherkh1/Waste-Management-System"
-                            class="btn disabled btn-primary">View on
-                            GitHub</a>
+                        <h5 class="card-title">Waste Management System <span class="award-pill">Department 1st</span></h5>
+                        <p class="card-text">
+                            Spring Boot microservices backend, React front end, deployed on AWS EC2 (Linux).
+                            Integrated an Arduino device in C++ for live data ingestion. First place in my software
+                            engineering department.
+                        </p>
+                        <div class="badge-row small">
+                            <span class="tech-badge">Spring Boot</span>
+                            <span class="tech-badge">Microservices</span>
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">AWS EC2</span>
+                            <span class="tech-badge">Arduino / C++</span>
+                        </div>
+                        <a target="_blank" rel="noopener" href="https://github.com/saherkh1/Waste-Management-System" class="btn btn-primary mt-3">
+                            <i class="fab fa-github me-2"></i>View on GitHub
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <!-- <img src="your-image.jpg" class="card-img-top" alt="Your image"> -->
+            <div class="col-md-6 portfolio-item" data-tags="java cloud">
+                <div class="card project-card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Parks Around You</h5>
-                        <p class="card-text">JAVA android application with database exports from Smart7 - smart city
-                            Database. Firebase for secure user access management.</p>
-                        <a target="_blank" href="https://github.com/saherkh1/ParksAroundYou_BeerSheba"
-                            class="btn btn-primary">View on
-                            GitHub</a>
+                        <p class="card-text">
+                            Java Android app on top of the Smart7 (Be'er Sheva smart city) database, with
+                            Firebase for auth and access management.
+                        </p>
+                        <div class="badge-row small">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">Android</span>
+                            <span class="tech-badge">Firebase</span>
+                        </div>
+                        <a target="_blank" rel="noopener" href="https://github.com/saherkh1/ParksAroundYou_BeerSheba" class="btn btn-primary mt-3">
+                            <i class="fab fa-github me-2"></i>View on GitHub
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="achievements" class="container py-4">
-        <h2 class="text-center">Achievements</h2>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline" class="container py-5 section-reveal">
+        <h2 class="section-title text-center">Journey</h2>
+        <p class="text-center subtitle">Selected milestones — degrees, wins, and certifications.</p>
+        <!-- Dates marked ~ are approximate; correct them as needed. -->
+        <ol class="timeline">
+            <li class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="timeline-content">
+                    <span class="timeline-date">~ during studies</span>
+                    <h5>1st Place — Hackathon</h5>
+                    <p>Won first place with a team-built solution. Earth Keepers (JavaFX) was one of those efforts.</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="timeline-content">
+                    <span class="timeline-date">~ during studies</span>
+                    <h5>Department 1st — Waste Management System</h5>
+                    <p>Spring Boot microservices, React, AWS EC2, Arduino/C++ integration. First place in the software engineering department.</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="timeline-content">
+                    <span class="timeline-date">2023</span>
+                    <h5>2nd Place — EcoHack</h5>
+                    <p>Runner-up at a hackathon focused on eco solutions.</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="timeline-content">
+                    <span class="timeline-date">Aug 2023</span>
+                    <h5>Recommendations from past employers</h5>
+                    <p>Two written recommendations on file (linked under Recommendations).</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="timeline-content">
+                    <span class="timeline-date">Earned</span>
+                    <h5>Bachelor's Degree — Software Engineering</h5>
+                    <p>Bachelor's degree in Software Engineering.</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="timeline-content">
+                    <span class="timeline-date">Certified</span>
+                    <h5>AWS Certified Developer — Associate</h5>
+                    <p>Hands-on AWS — S3, EC2, Lambda, DynamoDB.</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="timeline-content">
+                    <span class="timeline-date">Completed</span>
+                    <h5>Full-Stack Developer Certification</h5>
+                    <p>Full-stack certification course — web app fundamentals through deployment.</p>
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="container py-5 section-reveal">
+        <h2 class="section-title text-center">Certifications</h2>
         <div class="row">
-
-
             <div class="col-md-6">
-                <div class="card mb-4">
-                    <!-- <img src="your-image.jpg" class="card-img-top" alt="Your image"> -->
+                <div class="card cert-card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Hackathon Winner - First Place</h5>
-                        <p class="card-text">We developed an innovative solution that won us the first place in a
-                            prestigious hackathon.</p>
-                        <a target="_blank"
-                            href="https://github.com/saherkh1/Achievements/blob/main/Hackathon%20first%20place%20cerificate.png"
-                            class="btn btn-primary">View Details</a>
+                        <i class="fab fa-aws fa-2x cert-icon"></i>
+                        <h5 class="card-title mt-2">AWS Certified Developer — Associate</h5>
+                        <p class="card-text">Amazon Web Services. Validates hands-on experience building and maintaining apps on AWS.</p>
+                        <a target="_blank" rel="noopener" href="https://github.com/saherkh1/Achievements/blob/main/AWS%20Certified%20Developer%20-%20Associate%20certificate%20.pdf" class="btn btn-primary">
+                            <i class="fas fa-file-pdf me-2"></i>View Certificate
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card mb-4">
-                    <!-- <img src="your-image.jpg" class="card-img-top" alt="Your image"> -->
+                <div class="card cert-card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Hackathon Winner - Second Place</h5>
-                        <p class="card-text">We developed an innovative solution that won us the second place in a
-                            prestigious hackathon for Eco solutions.</p>
-                        <a target="_blank"
-                            href="https://www.linkedin.com/posts/saher-khateeb_ecohack-ecohack-hackathon-activity-7063475687713648640-Y7wt/?utm_source=share&utm_medium=member_desktop"
-                            class="btn btn-primary">View on Linkedin</a>
-                    </div>
-                </div>
-                <!-- Add more cards for other achievements -->
-            </div>
-
-
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <!-- <img src="your-image.jpg" class="card-img-top" alt="Your image"> -->
-                    <div class="card-body">
-                        <h5 class="card-title">AWS Certified Developer Associate</h5>
-                        <p class="card-text">Earned the AWS Certified Developer Associate certification.</p>
-                        <a target="_blank"
-                            href="https://github.com/saherkh1/Achievements/blob/main/AWS%20Certified%20Developer%20-%20Associate%20certificate%20.pdf"
-                            class="btn btn-primary">View Certificate</a>
+                        <i class="fas fa-code-branch fa-2x cert-icon"></i>
+                        <h5 class="card-title mt-2">Full-Stack Developer Certification</h5>
+                        <p class="card-text">Full-stack web development — front end, back end, and deployment.</p>
+                        <a target="_blank" rel="noopener" href="https://github.com/saherkh1/Achievements/blob/main/Full%20stack%20Certificate%20hebrew.pdf" class="btn btn-primary">
+                            <i class="fas fa-file-pdf me-2"></i>View Certificate
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card mb-4">
-                    <!-- <img src="your-image.jpg" class="card-img-top" alt="Your image"> -->
+                <div class="card cert-card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Full Stack Developer Certification Course</h5>
-                        <p class="card-text">Successfully completed a Full Stack Developer certification course.</p>
-                        <a target="_blank"
-                            href="https://github.com/saherkh1/Achievements/blob/main/Full%20stack%20Certificate%20hebrew.pdf"
-                            class="btn btn-primary">View Certificate</a>
-                    </div>
-                </div>
-                <!-- Add more cards for other achievements -->
-            </div>
-
-
-            <div class="col-md-6">
-                <!-- Other cards go here -->
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Bachelor's Degree</h5>
-                        <p class="card-text">Earned a Bachelor's degree in your Software Engineering.</p>
-                        <a target="_blank"
-                            href="https://github.com/saherkh1/Achievements/blob/main/Bachelor%20degree.pdf"
-                            class="btn btn-primary">View Degree</a>
+                        <i class="fas fa-graduation-cap fa-2x cert-icon"></i>
+                        <h5 class="card-title mt-2">Bachelor's Degree — Software Engineering</h5>
+                        <p class="card-text">Bachelor of Science in Software Engineering.</p>
+                        <a target="_blank" rel="noopener" href="https://github.com/saherkh1/Achievements/blob/main/Bachelor%20degree.pdf" class="btn btn-primary">
+                            <i class="fas fa-file-pdf me-2"></i>View Degree
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card mb-4">
+                <div class="card cert-card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Recommendations from Past Employers</h5>
-                        <p class="card-text">Received positive recommendations from past employers.</p>
-                        <a target="_blank"
-                            href="https://github.com/saherkh1/Achievements/blob/main/recommendation%201%2015.8.23%20hebrew%20.pdf"
-                            class="btn btn-primary">View Recommendation</a>
-                        <a target="_blank"
-                            href="https://github.com/saherkh1/Achievements/blob/main/recommendation%202%2015.8.23%20hebrew%20.pdf"
-                            class="btn btn-primary">View Recommendation</a>
+                        <i class="fas fa-trophy fa-2x cert-icon"></i>
+                        <h5 class="card-title mt-2">Hackathon — 1st Place</h5>
+                        <p class="card-text">First place at a hackathon for an innovative team-built solution.</p>
+                        <a target="_blank" rel="noopener" href="https://github.com/saherkh1/Achievements/blob/main/Hackathon%20first%20place%20cerificate.png" class="btn btn-primary">
+                            <i class="fas fa-image me-2"></i>View Certificate
+                        </a>
                     </div>
                 </div>
             </div>
-
         </div>
-    </div>
-    <!-- Contact Section -->
-    <div id="contact" class="container py-4">
-        <h2 class="text-center">Contact Me</h2>
+    </section>
 
-        <div class="row" style=>
-            <div class="col-md-3"></div>
+    <!-- Testimonials / Recommendations -->
+    <section id="testimonials" class="container py-5 section-reveal">
+        <h2 class="section-title text-center">Recommendations</h2>
+        <p class="text-center subtitle">Written by past employers — full letters linked below.</p>
+        <div class="row">
             <div class="col-md-6">
+                <div class="card testimonial-card h-100">
+                    <div class="card-body">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="testimonial-text">
+                            Written recommendation from a past employer (Hebrew). Click through for the full letter.
+                        </p>
+                        <div class="testimonial-meta">
+                            <strong>Past employer</strong>
+                            <span class="text-muted-info">August 2023</span>
+                        </div>
+                        <a target="_blank" rel="noopener" href="https://github.com/saherkh1/Achievements/blob/main/recommendation%201%2015.8.23%20hebrew%20.pdf" class="btn btn-primary mt-3">
+                            <i class="fas fa-file-pdf me-2"></i>Read Recommendation
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card testimonial-card h-100">
+                    <div class="card-body">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="testimonial-text">
+                            Second written recommendation from a past employer (Hebrew). Click through for the full letter.
+                        </p>
+                        <div class="testimonial-meta">
+                            <strong>Past employer</strong>
+                            <span class="text-muted-info">August 2023</span>
+                        </div>
+                        <a target="_blank" rel="noopener" href="https://github.com/saherkh1/Achievements/blob/main/recommendation%202%2015.8.23%20hebrew%20.pdf" class="btn btn-primary mt-3">
+                            <i class="fas fa-file-pdf me-2"></i>Read Recommendation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container py-5 section-reveal">
+        <h2 class="section-title text-center">Get in touch</h2>
+        <p class="text-center subtitle">Drop a message — or reach me directly at <a href="mailto:contact@saherkh.com">contact@saherkh.com</a>.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
                 <div class="responsive-iframe-container">
                     <iframe
+                        title="Contact form"
                         src="https://docs.google.com/forms/d/e/1FAIpQLSc49E1Q9X5Q1V6LjjVBBvUKpUtrctjGIMC_g3E5jtEEWKSxAQ/viewform?embedded=true"
+                        loading="lazy"
                         frameborder="0" marginheight="0" height="100%" marginwidth="0">Loading…</iframe>
                 </div>
             </div>
         </div>
-        <br />
-    </div>
+    </section>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Footer Section -->
-    <div class="container-fluid bg-dark text-white py-3">
+    <footer class="container-fluid bg-dark text-white py-4 site-footer">
         <div class="container text-center">
             <ul class="list-unstyled social-icons">
-                <li class="d-inline"><a target="_blank" href="https://linkedin.com/in/saher-khateeb"><i
-                            class="fab fa-linkedin icon-font "></i> </a></li>
-                <li class="d-inline"><a target="_blank" href="https://github.com/saherkh1"><i
-                            class="fab fa-github icon-font "></i> </a></li>
-                <li class="d-inline"><a target="_blank" href="https://facebook.com/khateebsaher"><i
-                            class="fab fa-facebook icon-font "></i> </a></li>
+                <li class="d-inline"><a target="_blank" rel="noopener" href="https://linkedin.com/in/saher-khateeb" aria-label="LinkedIn"><i class="fab fa-linkedin icon-font"></i></a></li>
+                <li class="d-inline"><a target="_blank" rel="noopener" href="https://github.com/saherkh1" aria-label="GitHub"><i class="fab fa-github icon-font"></i></a></li>
+                <li class="d-inline"><a target="_blank" rel="noopener" href="https://facebook.com/khateebsaher" aria-label="Facebook"><i class="fab fa-facebook icon-font"></i></a></li>
+                <li class="d-inline"><a href="mailto:contact@saherkh.com" aria-label="Email"><i class="fas fa-envelope icon-font"></i></a></li>
             </ul>
-            <p>© 2024 Saher Khateeb. All rights reserved.</p>
+            <p class="mb-0">&copy; <span id="footerYear">2026</span> Saher Khateeb. All rights reserved.</p>
         </div>
-    </div>
-
+    </footer>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

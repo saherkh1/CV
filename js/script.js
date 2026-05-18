@@ -1,75 +1,138 @@
-// Get the navbar element
-const navbar = document.querySelector('.navbar');
+// ---------- Navbar background on scroll ----------
+const navbar = document.querySelector('.navbarScroll');
+const scrollProgress = document.getElementById('scrollProgress');
+const backToTopBtn = document.getElementById('backToTop');
 
-// Add a scroll event listener to the window object
-window.addEventListener('scroll', function () {
-    // Check the scroll position of the window
-    if (window.scrollY > 0) {
-        // Add a dark class to the navbar element
-        navbar.classList.add('dark');
-    } else {
-        // Remove the dark class from the navbar element
-        navbar.classList.remove('dark');
+function onScroll() {
+    const y = window.scrollY || window.pageYOffset;
+
+    if (navbar) navbar.classList.toggle('scrolled', y > 0);
+
+    if (scrollProgress) {
+        const doc = document.documentElement;
+        const max = (doc.scrollHeight - doc.clientHeight) || 1;
+        scrollProgress.style.width = ((y / max) * 100) + '%';
     }
+
+    if (backToTopBtn) backToTopBtn.classList.toggle('visible', y > 400);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// ---------- Smooth scroll for nav links ----------
+document.querySelectorAll('.nav-link, a.scroll-cue, .navbar-brand').forEach((link) => {
+    link.addEventListener('click', function (event) {
+        const href = this.getAttribute('href');
+        if (!href || !href.startsWith('#')) return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        event.preventDefault();
+        const offset = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+
+        // Collapse mobile menu if open
+        const collapse = document.getElementById('navbarSupportedContent');
+        if (collapse && collapse.classList.contains('show') && window.bootstrap) {
+            const inst = window.bootstrap.Collapse.getInstance(collapse) || new window.bootstrap.Collapse(collapse, { toggle: false });
+            inst.hide();
+        }
+    });
 });
 
-// Custom JavaScript
-
-// Change the background color of the navbar on page scroll
-window.onscroll = function () {
-    var navbar = document.querySelector(".navbarScroll");
-    if (window.pageYOffset > 0) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-};
-
-// Add a smooth scroll effect to the navbar links
-var links = document.querySelectorAll(".nav-link");
-for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener("click", function (event) {
-        event.preventDefault();
-        var target = this.getAttribute("href");
-        var element = document.querySelector(target);
-        var offset = element.offsetTop - 80;
-        window.scrollTo({
-            top: offset,
-            behavior: "smooth"
-        });
+// ---------- Back to top ----------
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
-// Validate the contact form
-var form = document.getElementById("contact-form");
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var subject = document.getElementById("subject").value;
-    var message = document.getElementById("message").value;
-    if (name && email && subject && message) {
-        // Send the form data to your server or email service
-        // For example, using Ajax
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", form.action, true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send("name=" + name + "&email=" + email + "&subject=" + subject + "&message=" + message);
-        xhr.onload = function () {
-            if (xhr.status == 200) {
-                // Display a success message
-                alert("Your message has been sent successfully!");
-                // Reset the form fields
-                form.reset();
-            } else {
-                // Display an error message
-                alert("Something went wrong. Please try again later.");
+// ---------- Section reveal on scroll ----------
+const revealEls = document.querySelectorAll('.section-reveal');
+if ('IntersectionObserver' in window && revealEls.length) {
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                io.unobserve(entry.target);
             }
-        };
-    } else {
-        // Display a warning message
-        alert("Please fill in all the fields.");
+        });
+    }, { threshold: 0.12 });
+    revealEls.forEach((el) => io.observe(el));
+} else {
+    revealEls.forEach((el) => el.classList.add('revealed'));
+}
+
+// ---------- Active section highlight (scrollspy) ----------
+const sectionIds = ['home', 'about', 'skills', 'portfolio', 'timeline', 'certifications', 'testimonials', 'contact'];
+const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+
+if ('IntersectionObserver' in window && sections.length && navLinks.length) {
+    const spy = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                navLinks.forEach((l) => {
+                    l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    sections.forEach((s) => spy.observe(s));
+}
+
+// ---------- Typing animation in hero ----------
+const typedEl = document.getElementById('typed');
+if (typedEl) {
+    const phrases = [
+        'C# / .NET backend services.',
+        'cloud-native apps on AWS.',
+        'APIs that don’t wake you up at 3am.',
+        'full-stack features when needed.'
+    ];
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
+
+    function tick() {
+        const current = phrases[phraseIdx];
+        if (!deleting) {
+            typedEl.textContent = current.slice(0, ++charIdx);
+            if (charIdx === current.length) {
+                deleting = true;
+                setTimeout(tick, 1800);
+                return;
+            }
+        } else {
+            typedEl.textContent = current.slice(0, --charIdx);
+            if (charIdx === 0) {
+                deleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+            }
+        }
+        setTimeout(tick, deleting ? 35 : 70);
     }
-    
+    tick();
+}
+
+// ---------- Portfolio filtering ----------
+const filterChips = document.querySelectorAll('.filter-chip');
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+filterChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+        filterChips.forEach((c) => c.classList.remove('active'));
+        chip.classList.add('active');
+
+        const filter = chip.dataset.filter;
+        portfolioItems.forEach((item) => {
+            const tags = (item.dataset.tags || '').split(' ');
+            const show = filter === 'all' || tags.includes(filter);
+            item.classList.toggle('hidden', !show);
+        });
+    });
 });
 
+// ---------- Footer year ----------
+const yearEl = document.getElementById('footerYear');
+if (yearEl) yearEl.textContent = new Date().getFullYear();

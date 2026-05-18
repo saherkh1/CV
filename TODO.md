@@ -7,66 +7,56 @@
   - [x] Add smooth transition between themes
   - [x] Store user preference in localStorage
 
-- [ ] Enhance Hero Section
-  - Add parallax scrolling effect to background
-  - Implement animated typing text for skills
-  - Add floating social media icons with hover effects
-  - Optimize hero image loading
+- [x] Enhance Hero Section
+  - [ ] Add parallax scrolling effect to background
+  - [x] Implement animated typing text for skills
+  - [x] Add floating social media icons with hover effects
+  - [ ] Optimize hero image loading (current bgProfile is heavy)
 
-- [ ] Improve Portfolio Section
-  - Add project thumbnails/screenshots
-  - Create technology stack badges
-  - Add live demo links where applicable
-  - Implement project filtering system by technology
-    - Categories: C#, Java, Web, etc.
-  - Add hover effects to project cards
+- [x] Improve Portfolio Section
+  - [ ] Add project thumbnails/screenshots
+  - [x] Create technology stack badges
+  - [ ] Add live demo links where applicable
+  - [x] Implement project filtering system by technology (C# / Java / Web / Cloud)
+  - [x] Add hover effects to project cards
 
-- [ ] Create Skills Section
-  - Design skill progress bars or charts
-  - Organize skills by categories:
-    - Programming Languages
-    - Frameworks & Libraries
-    - Tools & Technologies
-    - Cloud & DevOps
-  - Add hover effects to show experience level
+- [x] Create Skills Section
+  - [x] Organize skills by categories (Languages / Frameworks / Cloud & DevOps / Tools)
+  - [x] Grouped badge-pill UI
 
 ## 💻 Technical Improvements
-- [ ] Framework Updates
-  - Update Bootstrap from 4.5.2 to latest version
-  - Update other dependencies
+- [x] Framework Updates
+  - [x] Bootstrap on latest 5.3.3
+  - [ ] Periodically refresh CDN versions
 
 - [ ] Performance Optimization
-  - Implement lazy loading for images
-  - Optimize asset loading
-  - Minify CSS and JavaScript
-  - Implement caching strategies
+  - [x] Lazy-load contact iframe
+  - [ ] Convert hero/background images to WebP and resize (still on the table)
+  - [ ] Minify CSS and JavaScript
+  - [x] Preconnect CDN hosts
 
-- [ ] SEO Improvements
-  - Add proper meta tags
-  - Implement Open Graph tags
-  - Add structured data (JSON-LD)
-  - Create sitemap.xml
-  - Add robots.txt
+- [x] SEO Improvements
+  - [x] Add proper meta tags
+  - [x] Implement Open Graph tags
+  - [x] Add structured data (JSON-LD)
+  - [x] Create sitemap.xml
+  - [x] Add robots.txt
 
 ## 🔄 Interactive Features
-- [ ] Add Smooth Animations
-  - Implement smooth scroll between sections
-  - Add loading animations for cards
-  - Create hover effects for interactive elements
-  - Add scroll-triggered animations
+- [x] Add Smooth Animations
+  - [x] Smooth scroll between sections
+  - [x] Scroll-triggered fade-in for sections
+  - [x] Hover effects on cards / badges
 
 - [ ] Contact Form Enhancement
-  - Design and implement proper contact form
-  - Add form validation
-  - Implement email service integration
-  - Add success/error messages
-  - Include Google Maps integration
+  - Current: Google Forms iframe (kept for now)
+  - Future: native form with email service integration
 
-- [ ] Navigation Improvements
-  - Enhance mobile navigation menu
-  - Add "Back to Top" button
-  - Implement scroll progress indicator
-  - Add active section highlighting
+- [x] Navigation Improvements
+  - [x] Mobile navigation collapse-on-click
+  - [x] Add "Back to Top" button
+  - [x] Implement scroll progress indicator
+  - [x] Add active section highlighting
 
 ## 📱 Mobile Optimization
 - [ ] Responsive Design
@@ -76,16 +66,16 @@
   - Improve mobile navigation UX
 
 ## 📝 Content Additions
-- [ ] New Sections
-  - Create blog section for technical writing
-  - Add testimonials/recommendations section
-  - Design professional timeline
-  - Add certifications showcase with badges
+- [x] New Sections
+  - [ ] Create blog section for technical writing
+  - [x] Add testimonials/recommendations section
+  - [x] Design professional timeline
+  - [x] Add certifications showcase
 
-- [ ] Resume Integration
-  - Add downloadable PDF resume
-  - Implement resume preview
-  - Add version tracking for resume updates
+- [x] Resume Integration
+  - [x] Downloadable PDF resume link in hero
+  - [ ] Implement resume preview
+  - [ ] Add version tracking for resume updates
 
 ## 🔍 Testing & Quality
 - [ ] Cross-browser Testing
